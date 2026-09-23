@@ -1,0 +1,42 @@
+# ============================================================
+# 学生刷脸考勤系统 · 第一阶段 后端依赖清单
+# 依据：docs/需求文档-第一阶段.md 第 3.1 节
+# 运行环境：Python 3.11（Windows 单机）
+#
+# 版本锁定原则：
+#   1. numpy 必须 < 2.0（insightface / onnx 生态与 numpy 2.x 不兼容）
+#   2. pymilvus / milvus-lite 用实测通过的 3.0.2 / 3.2.1
+#      （新版纯 Python 实现，Windows 可直接安装，详见 POC 记录）
+#   3. 其余按需求文档锁定主版本
+# ============================================================
+
+# --- Web 框架 ---
+fastapi==0.136.0
+uvicorn[standard]==0.30.6
+pydantic==2.11.4
+pydantic-settings==2.10.1
+
+# --- 数据库 ---
+SQLAlchemy==2.0.41
+
+# --- 向量库（Milvus Lite，Windows 可用）---
+pymilvus==3.0.2
+milvus-lite==3.2.1
+
+# --- 人脸识别 ---
+insightface==1.0.1
+onnxruntime==1.28.0
+
+# --- 数值计算 / 图像处理 ---
+numpy==1.26.4
+opencv-python==4.10.0.84
+
+# --- 数据分析 / 机器学习 ---
+pandas==2.2.3
+scikit-learn==1.6.1
+
+# --- 文件导入（Excel 解析引擎）---
+openpyxl==3.1.5
+
+# --- 其他（pymilvus 依赖会带，此处显式声明便于锁定）---
+python-multipart==0.0.20
